@@ -20,7 +20,7 @@ const Header = (props) => {
       >
         <Toolbar style={{ justifyContent: "space-between", marginRight: 50 }}>
           <Typography variant="h6" component="div">
-            Scroll to hide App bar
+            Fucksmann Rothman
           </Typography>
           <IconButton
             size="large"
