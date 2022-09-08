@@ -24,7 +24,7 @@ const appTheme = createTheme({
 //*-------- typography-------------------
 
 appTheme.typography.h3 = {
-  fontSize: isMobile ? "1.3rem" : "1.6em",
+  fontSize: isMobile ? "1rem" : "1.6em",
   lineHeight: isMobile && "36px",
   fontFamily: "nimbusSansLight",
 };

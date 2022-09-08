@@ -6,6 +6,7 @@ import NavBarHome from "./navBarHome";
 
 import logoH from "../../assets/logo/logoH.png";
 import { VicuContext } from "../../context/vicuContext";
+import { isMobile } from "../../helpers/isMobile";
 
 const Home = () => {
   const { ready, setReady } = useContext(VicuContext);
@@ -51,11 +52,13 @@ const GridForm = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   minHeight: "100vh",
+  textAlign: "center",
   backgroundColor: "#fff",
+  overflow: "hidden",
 }));
 
 const Imagen = styled("img")(({ theme }) => ({
-  width: "62%",
+  width: isMobile ? "74%" : "62%",
   transition: "0.4s",
   cursor: "pointer",
 
