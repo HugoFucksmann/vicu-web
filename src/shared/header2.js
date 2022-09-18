@@ -3,35 +3,49 @@ import {
   IconButton,
   Slide,
   Toolbar,
-  Typography,
   useScrollTrigger,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
+
+import logo from "../assets/logo/logoH.png";
+import { useEffect, useState } from "react";
+
 const Header = (props) => {
-  const { openHeader, setOpenHeader } = props;
+  const [bgHeader, setBgHeader] = useState(false);
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    let event = window.addEventListener("scroll", () => {
+      if (window.innerHeight < window.scrollY) setBgHeader(true);
+      else setBgHeader(false);
+    });
+
+    return () => {
+      window.removeEventListener("scroll", event);
+    };
+  }, []);
+
   return (
     <HideOnScroll {...props}>
       <AppBar
         elevation={0}
         style={{
-          backgroundColor: "transparent",
-          height: 65,
+          backgroundColor: bgHeader ? "#fff" : "transparent",
+          padding: 15,
         }}
       >
         <Toolbar style={{ justifyContent: "space-between", marginRight: 50 }}>
-          <Typography variant="h6" component="div">
-            Fucksmann Rothman
-          </Typography>
+          <img src={logo} alt="logoFR" style={{ height: "2.5vh" }} />
           <IconButton
             size="large"
             edge="start"
-            color="inherit"
+            color={bgHeader ? "default" : "inherit"}
             aria-label="menu"
             sx={{ mr: 2 }}
-            onClick={() => setOpenHeader(!openHeader)}
+            onClick={() => navigate("/")}
           >
-            {openHeader ? <CloseIcon /> : <MenuIcon />}
+            <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>

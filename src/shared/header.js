@@ -56,6 +56,7 @@ const HeaderTrece = (props) => {
         elevation={!headerBack ? 0 : 3}
         style={{
           background: !headerBack ? "transparent" : "#fff",
+
           paddingLeft: !isMobile && 70,
         }}
       >
@@ -77,30 +78,6 @@ const HeaderTrece = (props) => {
               >
                 <MenuIcon />
               </IconButton>
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: "top",
-                  horizontal: "left",
-                }}
-                open={anchorElNav}
-                onClose={() => setAnchorElNav(false)}
-                sx={{
-                  display: { xs: "block", md: "none" },
-                }}
-              >
-                {props.pages.map((page) => (
-                  <MenuItem key={page.link} onClick={() => navigate(page.link)}>
-                    <Typography textAlign="center">{page.txt}</Typography>
-                  </MenuItem>
-                ))}
-              </Menu>
             </Box>
             <img
               src={props.logo}

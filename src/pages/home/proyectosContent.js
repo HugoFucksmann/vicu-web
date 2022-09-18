@@ -6,22 +6,29 @@ import { useNavigate } from "react-router-dom";
 import f1 from "../../assets/f1.jpg";
 import f2 from "../../assets/f2.jpg";
 import { VicuContext } from "../../context/vicuContext";
+import { isMobile } from "../../helpers/isMobile";
 
 const ProyectosContent = () => {
-  const { handlerProyecto } = useContext(VicuContext);
   let navigate = useNavigate();
   return (
-    <Grid container spacing={4} style={{ padding: 20, marginTop: -60 }}>
+    <Grid
+      container
+      spacing={4}
+      style={{
+        padding: 20,
+        marginTop: -60,
+      }}
+    >
       {items.map((obj, i) => (
         <Grid
-          key={i + 2}
+          key={i + 900}
           item
           xs={12}
           md={4}
           onClick={() => navigate("proyecto/" + obj.link)}
         >
           <Imagen img={obj.img} img2={obj.img2} />
-          <Typography variant="h2">{obj.title} </Typography>
+          <Typography variant="h3">{obj.title} </Typography>
         </Grid>
       ))}
     </Grid>
@@ -29,7 +36,7 @@ const ProyectosContent = () => {
 };
 
 const Imagen = styled("div")(({ theme, img, img2 }) => ({
-  height: "30vw",
+  height: isMobile ? "36vw" : "30vw",
   width: "auto",
   transition: "0.5s",
   background: `url(${img})`,

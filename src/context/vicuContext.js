@@ -1,5 +1,5 @@
 import React, { createContext, Component } from "react";
-import { dataProyectos } from "./dataProyectos";
+import { dataProyectos } from "../pages/proyect/dataProyectos";
 
 export const VicuContext = createContext();
 
@@ -28,11 +28,12 @@ class VicuProvider extends Component {
   };
 
   handlerConProyect = () => {
-    let proyectName = window.location.pathname.split("/");
+    let [x, d, proyectName] = window.location.pathname.split("/");
     let proyecto = null;
-
+    console.log(dataProyectos);
+    console.log(proyectName);
     dataProyectos.map((obj, i) => {
-      if (obj.name === proyectName[2]) proyecto = obj;
+      if (obj.name === proyectName) proyecto = obj;
     });
 
     this.setState({

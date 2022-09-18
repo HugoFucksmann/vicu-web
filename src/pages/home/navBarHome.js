@@ -1,27 +1,45 @@
 import { Typography } from "@mui/material";
+import { isMobile } from "../../helpers/isMobile";
+
 import logoV from "../../assets/logo/logoV.png";
+import logoH from "../../assets/logo/logoH.png";
 
 const NavBarHome = () => {
   return (
     <div
       style={{
-        height: "100vh",
-
-        display: "flex",
-        flexDirection: "column",
-        paddingLeft: 40,
+        position: !isMobile && "fixed",
+        width: isMobile ? "100%" : "25%",
       }}
     >
       <img
-        src={logoV}
+        src={isMobile ? logoH : logoV}
         alt="fucksmann-rothman"
-        style={{ width: "64%", marginBottom: 60 }}
+        style={{
+          width: isMobile ? "100%" : "72%",
+
+          marginBottom: isMobile ? 16 : 60,
+          marginTop: 6,
+        }}
       />
-      {["proyectos", "contactanos", "otros"].map((item) => (
-        <Typography key={item} variant="h2" style={{ marginBottom: 6 }}>
-          {item}
-        </Typography>
-      ))}
+      <div
+        style={{
+          display: "flex",
+          flexDirection: isMobile ? "row" : "column",
+
+          justifyContent: "space-around",
+        }}
+      >
+        {["proyectos", "contactanos", "otros"].map((item) => (
+          <Typography
+            key={item}
+            variant="h3"
+            style={{ marginBottom: isMobile ? 26 : 8, cursor: "pointer" }}
+          >
+            {item}
+          </Typography>
+        ))}
+      </div>
     </div>
   );
 };
