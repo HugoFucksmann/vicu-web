@@ -34,7 +34,7 @@ const Slider = ({ data }) => {
                   padding: "6px 8%",
                   bottom: "15%",
                   width: "100%",
-
+                  /* backgroundColor: "rgba(255,255,255,0.3)", */
                   color: "#f2f2f2",
                 }}
               >

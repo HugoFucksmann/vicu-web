@@ -36,9 +36,10 @@ const ProyectosContent = () => {
 };
 
 const Imagen = styled("div")(({ theme, img, img2 }) => ({
-  height: isMobile ? "36vw" : "30vw",
-  width: "auto",
+  height: isMobile ? "82vw" : "30vw",
+  width: isMobile ? "80%" : "auto",
   transition: "0.5s",
+  margin: isMobile && "auto",
   background: `url(${img})`,
   cursor: "pointer",
   "&:hover": {
